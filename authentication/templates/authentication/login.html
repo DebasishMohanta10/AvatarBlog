@@ -1,0 +1,26 @@
+{% extends 'authentication/base.html' %}
+
+{% block title %} | Login {% endblock %}
+
+{% block content %}
+    <div class="container mx-auto" style="width: 40%;">
+        <h1 class="text-center mb-4" style="font-family: 'Comfortaa', cursive;font-weight: 700;">Login</h1>
+        <p class="text-center mb-5">
+            {% if message %}
+                {{message}}
+            {% else %}
+                Your account, just a login away!
+            {% endif %}
+        </p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Login" class="form-control my-3 btn btn-primary">
+        </form>
+        <hr>
+        <p class="text-center">Not having an account? You want to Create</p>
+        <div class="text-center">
+            <a href="{% url 'authentication:signup' %}" class="btn btn-success pb-2">Click Here to Register</a>
+        </div>
+    </div>
+{% endblock %}
